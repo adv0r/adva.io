@@ -1,5 +1,8 @@
 var API_PREFIX = 'https://api.github.com/repos/rgv151/huy.im/git',
     e = "hi@adva.io";
+
+var stdError =     "command not found, type help to list available comands";  
+
 var GitHub = new (function() {
     this.fs = new Object;
     this.loaded = false;
@@ -60,17 +63,16 @@ var App = {
     },
     help: function() {
         this.echo("Available commands:");
-        this.echo("\tapi       retreive infomation about me via API");
-        this.echo("\tblog     open http://blog.adva.io");
-        this.echo("\tprojects      see what i've done");
-        this.echo("\ttip      send me tip using cryptocurrencies");
-        this.echo("\tresume     download a .pdf copy of my resume");
-        this.echo("\tservices      hire me");
-        this.echo("\photos      open my flickr photostream");
-        this.echo("\twhoami      display my short brief");
-        this.echo("\thelp        this help screen.");                        
+        this.echo("\t[[b;#44D544;]blog]     open my blog (blog.adva.io) ");
+        this.echo("\t[[b;#44D544;]services]      have an interesting project?  Lets talk");
+        this.echo("\t[[b;#44D544;]projects]      see what i've done");
+        this.echo("\t[[b;#44D544;]tip]      send me a cryptocurrencies tip");
+        this.echo("\t[[b;#44D544;]cv]     download a .pdf copy of my resume");
+        this.echo("\t[[b;#44D544;]pics]      open my flickr photostream");
+        this.echo("\t[[b;#44D544;]api]       retrieve a JSON object representing me"); //TODO check if retrieve is correct
+        this.echo("\t[[b;#44D544;]whoami]      display my short brief");
+        this.echo("\t[[b;#44D544;]help]        this help screen.");                        
         this.echo("");
-        this.echo("some other basic Linux commands are available: cat cd id ls startx")
 
         if(ga != undefined) ga('send', 'event', 'help', GitHub.getCurrentPath());
     },
@@ -94,6 +96,34 @@ var App = {
 
         if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'contact');
     },
+      api: function() {
+        this.echo("api: ")
+        if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'api');
+    },
+          blog: function() {
+        this.echo("blog: ")
+        if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'blog');
+    },
+          projects: function() {
+        this.echo("projects: ")
+        if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'projects');
+    },
+          tip: function() {
+        this.echo("tip: ")
+        if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'tip');
+    },
+          services: function() {
+        this.echo("services: ")
+        if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'services');
+    },
+          pics: function() {
+        this.echo("pics: ")
+        if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'pics');
+    },
+         cv: function() {
+        this.echo("cv: ")
+        if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'cv');
+    },
     about: function() {
         this.echo("This page built with <a href='http://terminal.jcubic.pl/' target='_blank'>jQuery Terminal Emulator</a> plugin, and hosted by <a href='http://pages.github.com' target='_blank'>GitHub Pages<a/>. Source code is also available on <a href='https://github.com/rgv151/huy.im/tree/gh-pages' target='_blank'>GitHub</a>.<br/><br/>This page is under development.. keep visting for many cool things on the future.", {raw:true});
 
@@ -101,56 +131,7 @@ var App = {
     },
     id: function(){
         this.echo("uid=1000(tui) gid=1000(tui)");
-
-        if(ga != undefined) ga('send', 'event', 'id', GitHub.getCurrentPath());
-    },
-    ls: function() {        
-        var wd = GitHub.getCurrentWorkingDirectory();
-        for(i in wd) {
-            if(typeof wd[i] == 'object') {
-                var item = wd[i];
-                this.echo(item.mode+'\t' + (item.type=='tree'?'[[b;#44D544;]'+item.path+']':item.path));
-            }
-        }
-
-        if(ga != undefined) ga('send', 'event', 'ls', GitHub.getCurrentPath());
-    },
-    cd: function(path) {        
-        if(path == '..') {
-            GitHub.stack.pop();
-            return;
-        }        
-        var wd = GitHub.getCurrentWorkingDirectory();
-        var item = wd[path]
-        if(!item) {
-            this.error("cd: " + path + ": No such file or directory");
-        } else if(item.type != 'tree') {
-            this.error("cd: " + path  + ": Not a directory");
-        } else {
-            GitHub.stack.push(path);
-        }
-
-        if(ga != undefined) ga('send', 'event', 'cd', GitHub.getCurrentPath(), 'path', path);
-    },
-    cat: function(path){
-        var wd = GitHub.getCurrentWorkingDirectory();
-        var item = wd[path];
-        if(!item) {
-            this.error("cat: " + path + ": No such file or directory");
-        } else if(item.type == 'tree') {
-            this.error("cat: " + path  + ": Is a directory");
-        } else {
-            var term = this;
-            term.pause();
-            $.getJSON(item.url, function(data, textStatus, jqXHR){
-                var content = data.content.trim()
-                if(data.encoding == 'base64')
-                    content = decode64(content);
-                term.echo(content); 
-                term.resume();
-            });
-        }
-        if(ga != undefined) ga('send', 'event', 'cat', GitHub.getCurrentPath(), 'path', path);
+        if(ga != undefined) ga('send', 'event', 'id', GitHub.getCurrentPath(),'id');
     },
     startx: function() {
         this.error('xinit: unable to connect to X server: Resource temporarily unavailable\nxinit: server error');
@@ -167,7 +148,7 @@ jQuery(document).ready(function($) {
             "|   |  Y Y  \\ \\    Y    /  |  /\\___  |\n" +
             "|___|__|_|  /  \\___|_  /|____/ / ____|\n" +
             "          \\/         \\/        \\/     \n" +
-            "Software Engineer]\n\nType [[b;#44D544;]whoami] to read something about me, [[b;#44D544;]ls] to explore resources on this page and [[b;#44D544;]help] if you dont know what to do next.\n",
+            "Software Engineer in a box]\n\nType [[b;#44D544;]help] to list available commands,  [[b;#44D544;]whoami] to read something about me, or   [[b;#44D544;]about] to learn about this webpage .\n",
         prompt: function(p){
             var path = '~'
             if(GitHub.stack.length > 0) {

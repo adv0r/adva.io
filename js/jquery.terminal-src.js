@@ -2290,7 +2290,7 @@
                         } : undefined
                     });
                 } else {
-                    terminal.error(command.name + ": command not found");
+                    terminal.error(command.name + ": command not found, type help to list available comands");
                 }
             };
         }
