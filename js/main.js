@@ -1,5 +1,4 @@
-var API_PREFIX = 'https://api.github.com/repos/rgv151/huy.im/git',
-    e = "hi@adva.io";
+var e = "hi@adva.io";
 
 var stdError =     "command not found, type help to list available comands";  
 
@@ -25,34 +24,7 @@ var GitHub = new (function() {
     };
         
     var self = this;    
-    $.getJSON(API_PREFIX + '/refs/heads/master', function(data, textStatus, jqXHR){
-    //$.getJSON('data/master.json', function(data, textStatus, jqXHR){
-        var sha = data.object.sha;
-        $.getJSON(API_PREFIX + '/trees/'+sha+'?recursive=1', function(data, textStatus, jqXHR){
-        //$.getJSON('data/tree.json', function(data, textStatus, jqXHR){
-            for(i in data.tree) {
-                var item = data.tree[i];                
-                var paths = item.path.split('/');   
-                
-                var fs = self.fs;                
-                for(var i=0; i< paths.length; i++) {
-                    var path = paths[i];                    
-                    
-                    if(!fs.hasOwnProperty(path)) {
-                       fs[path] = new Object;
-                    } else {
-                       fs = fs[path]
-                    }
-                       
-                    if (i == paths.length-1) {
-                        item.path = path;
-                        fs[path] = item;
-                    }
-                }
-            }
-            self.loaded = true;
-        });
-    });
+
 })();
 
 var App = {
@@ -63,22 +35,27 @@ var App = {
     },
     help: function() {
         this.echo("Available commands:");
-        this.echo("\t[[b;#44D544;]blog]     open my blog (blog.adva.io) ");
-        this.echo("\t[[b;#44D544;]services]      have an interesting project?  Lets talk");
-        this.echo("\t[[b;#44D544;]projects]      see what i've done");
-        this.echo("\t[[b;#44D544;]tip]      send me a cryptocurrencies tip");
-        this.echo("\t[[b;#44D544;]cv]     download a .pdf copy of my resume");
-        this.echo("\t[[b;#44D544;]pics]      open my flickr photostream");
-        this.echo("\t[[b;#44D544;]api]       retrieve a JSON object representing me"); //TODO check if retrieve is correct
-        this.echo("\t[[b;#44D544;]whoami]      display my short brief");
+        this.echo("\t[[b;#44D544;]whoami]      display my short bio");
+        this.echo("\t[[b;#44D544;]blog]     open the blog (blog.adva.io) #hacks  ");
+        this.echo("\t[[b;#44D544;]services]      need technical lead for an interesting project? lets talk");
+        this.echo("\t[[b;#44D544;]projects]      list some projects i've been working on");
+        this.echo("\t[[b;#44D544;]contact]       get in touch"); //TODO check if retrieve is correct
+        this.echo("\t[[b;#44D544;]tip]      support my development efforts with small tips (BTC)");
+        this.echo("\t[[b;#44D544;]cv]      read my resume");
+        this.echo("\t[[b;#44D544;]keywords]       drop some ramdom fancy buzzwords");
+        this.echo("\t[[b;#44D544;]share]  share this with friends");
+        this.echo("\t[[b;#44D544;]pics]      take a look my flickr photostream");
+        this.echo("\t[[b;#44D544;]api]       retrieve a JSON representation of me"); //TODO check if retrieve is correct
         this.echo("\t[[b;#44D544;]help]        this help screen.");                        
         this.echo("");
+        this.echo("TIP: press <tab> to trigger autocompletion");
+
 
         if(ga != undefined) ga('send', 'event', 'help', GitHub.getCurrentPath());
     },
     whoami: function() {
-        this.echo("Hello, my name is Huy Doan (aka Bruce Doan), I'm dad of Mia (a super cute girl) and I'm from  HCMc, Vietnam.");
-        this.echo("I'm a programmer, Linux system administrator. I really love Open Source and passionate to create, contrinute to Open Source projects");
+        this.echo("Hey! I'm glad you came here to know more about me"); 
+        this.echo("My name is Nicolò Paternoster and I'm a geek.");
         this.echo("My technical summary:");
         this.echo("\t- Have strong knowledge about Linux operating system and open source software.");
         this.echo("\t- Responsible for day-to-day defense of our network, servers.");
@@ -112,6 +89,10 @@ var App = {
         this.echo("tip: ")
         if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'tip');
     },
+              keywords: function() {
+        this.echo("keywords: ")
+        if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'keywords');
+    },
           services: function() {
         this.echo("services: ")
         if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'services');
@@ -119,6 +100,10 @@ var App = {
           pics: function() {
         this.echo("pics: ")
         if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'pics');
+    },
+              share: function() {
+        this.echo("share: ")
+        if(ga != undefined) ga('send', 'event', GitHub.getCurrentPath(), 'share');
     },
          cv: function() {
         this.echo("cv: ")
@@ -148,15 +133,9 @@ jQuery(document).ready(function($) {
             "|   |  Y Y  \\ \\    Y    /  |  /\\___  |\n" +
             "|___|__|_|  /  \\___|_  /|____/ / ____|\n" +
             "          \\/         \\/        \\/     \n" +
-            "Software Engineer in a box]\n\nType [[b;#44D544;]help] to list available commands,  [[b;#44D544;]whoami] to read something about me, or   [[b;#44D544;]about] to learn about this webpage .\n",
+            "Software engineer in a box]\n\nType [[b;#44D544;]help] to list available commands,  [[b;#44D544;]whoami] to read something about me, or   [[b;#44D544;]about] to learn about this webpage .\n",
         prompt: function(p){
             var path = '~'
-            if(GitHub.stack.length > 0) {
-                for(i in GitHub.stack) {
-                    path+= '/';
-                    path+= GitHub.stack[i]
-                }
-            }
             p(e + ":" + path + "# ");
         },
         onBlur: function() {
