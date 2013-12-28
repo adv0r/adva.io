@@ -1,8 +1,5 @@
 var e = "hi@adva.io";
 
-var stdError =     "command not found, type help to list available comands";  
-
-
 var App = {
     echo: function(text) {
         this.echo(text);
@@ -106,8 +103,8 @@ jQuery(document).ready(function($) {
 " #     #  #     #   #   #   #     #              #     #     #\n"+
 " #     #  #     #    # #    #     #              #     #     #\n"+
 " #    ##  #     #    # #    #    ##    ##        #     #     #\n"+
-"  #### #   ######     #      #### #    ##      #####    ##### \n\n\n"+
-            "Software engineer in a box]\n\nType [[b;#44D544;]help] to list available commands,  [[b;#44D544;]whoami] to read something about me, or   [[b;#44D544;]about] to learn about this webpage .\n",
+"  #### #   ######     #      #### #    ##      #####    ##### \n\n"+
+            "Software engineer in a box]\n\n\nType [[b;#44D544;]help] to list available commands,  [[b;#44D544;]whoami] to read something about me, or   [[b;#44D544;]about] to learn about this webpage .\n\n",
         prompt: function(p){
             var path = '~'
             p(e + ":" + path + "# ");
