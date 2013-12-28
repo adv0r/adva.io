@@ -2,30 +2,6 @@ var e = "hi@adva.io";
 
 var stdError =     "command not found, type help to list available comands";  
 
-var GitHub = new (function() {
-    this.fs = new Object;
-    this.loaded = false;
-    this.stack = new Array;
-
-    this.getCurrentPath = function(){
-        if(this.stack.length == 0) 
-            return '~/';
-        return this.stack.join('/')
-    },    
-    this.getCurrentWorkingDirectory = function() {
-        if(this.stack.length == 0) 
-            return this.fs;
-        
-        var fs = this.fs
-        for(var i in this.stack) {
-            fs = fs[this.stack[i]];
-        }
-        return fs;
-    };
-        
-    var self = this;    
-
-})();
 
 var App = {
     echo: function(text) {
