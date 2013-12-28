@@ -99,12 +99,14 @@ var App = {
 
 jQuery(document).ready(function($) {
     $('body').terminal(App, {
-        greetings: "[[b;#44D544;].___            ___ ___\n" +
-            "|   | _____    /   |   \\ __ __ ___.__.\n" +
-            "|   |/     \\  /    ~    \\  |  <   |  |\n" + 
-            "|   |  Y Y  \\ \\    Y    /  |  /\\___  |\n" +
-            "|___|__|_|  /  \\___|_  /|____/ / ____|\n" +
-            "          \\/         \\/        \\/     \n" +
+ greetings: "[[b;#44D544;]                #                                #            \n"+
+"                #                                #            \n"+
+"                #                                             \n"+
+"  ######   ######  ##   ##   ######            ###      ##### \n"+
+" #     #  #     #   #   #   #     #              #     #     #\n"+
+" #     #  #     #    # #    #     #              #     #     #\n"+
+" #    ##  #     #    # #    #    ##    ##        #     #     #\n"+
+"  #### #   ######     #      #### #    ##      #####    ##### \n\n\n"+
             "Software engineer in a box]\n\nType [[b;#44D544;]help] to list available commands,  [[b;#44D544;]whoami] to read something about me, or   [[b;#44D544;]about] to learn about this webpage .\n",
         prompt: function(p){
             var path = '~'
