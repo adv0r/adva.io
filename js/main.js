@@ -20,11 +20,7 @@ var App = {
     whoami: function() {
         this.echo("Hey! I'm glad you came here to know more about me"); 
         this.echo("My name is [[b;#44D544;] Nicolò Paternoster] and I'm a geek.");
-        this.echo("My technical summary:");
-        this.echo("\t- Have strong knowledge about Linux operating system and open source software.");
-        this.echo("\t- Responsible for day-to-day defense of our network, servers.");
-        this.echo("\t- Experienced with web application development, specialist with PHP/MySQL. Can develop desktop/web application with Java/Python.");
-        this.echo("\t- Able to make mobile apps using many different technologies (Native/Titanium/PhoneGap)");
+        this.echo("This website is under construction ;) Wait for it. :");
         this.echo("\nI'm available to work as freelancer, so feel free to get in touch via [[b;#44D544;]contact] command");
 
         if(ga != undefined) ga('send', 'event', 'whoami');
