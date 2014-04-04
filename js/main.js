@@ -42,9 +42,21 @@ var App = {
         this.echo("blog: ")
         if(ga != undefined) ga('send', 'event', 'blog');
     },
+       publications: function() {
+        this.echo("publications: ")
+        if(ga != undefined) ga('send', 'event', 'publications');
+    },
+        slides: function() {
+        this.echo("slides: ")
+        if(ga != undefined) ga('send', 'event', 'slides');
+    },
           projects: function() {
         this.echo("projects: ")
         if(ga != undefined) ga('send', 'event', 'projects');
+    },
+        publicPGPkey: function() {
+        this.echo("publicPGPkey: ")
+        if(ga != undefined) ga('send', 'event', 'publicPGPkey');
     },
           tip: function() {
         this.echo("tip: ")
@@ -121,9 +133,12 @@ function showHelp(consoleObj)
         consoleObj.echo("\t[[b;#44D544;]blog]     open the blog (blog.adva.io) #hacks  ");
         consoleObj.echo("\t[[b;#44D544;]services]      need technical lead for an interesting project? lets talk");
         consoleObj.echo("\t[[b;#44D544;]projects]      list some projects i've been working on");
+        consoleObj.echo("\t[[b;#44D544;]publicPGPkey]      use this public key to send me encrypted messages");
         consoleObj.echo("\t[[b;#44D544;]contact]       get in touch"); //TODO check if retrieve is correct
         consoleObj.echo("\t[[b;#44D544;]tip]      support my development efforts with small tips (BTC)");
         consoleObj.echo("\t[[b;#44D544;]cv]      read my resume");
+        consoleObj.echo("\t[[b;#44D544;]publications]      list my publications");
+        consoleObj.echo("\t[[b;#44D544;]slides]      some slides and prezis ");
         consoleObj.echo("\t[[b;#44D544;]keywords]       drop some ramdom fancy buzzwords");
         consoleObj.echo("\t[[b;#44D544;]share]  share this with friends");
         consoleObj.echo("\t[[b;#44D544;]pics]      take a look my flickr photostream");
