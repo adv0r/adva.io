@@ -127,36 +127,36 @@ jQuery(document).ready(function($) {
 
 function showPGP(consoleObj)
 {
-consoleObj.echo("-----BEGIN PGP PUBLIC KEY BLOCK-----"+
-"Version: Mailvelope v0.8.0"+
-"Comment: Email security by Mailvelope - http://www.mailvelope.com"+
+consoleObj.echo("-----BEGIN PGP PUBLIC KEY BLOCK-----\n"+
+"Version: Mailvelope v0.8.0\n"+
+"Comment: Email security by Mailvelope - http://www.mailvelope.com\n"+
 
-"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
+"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\n"+
 "5PchLxtG"+
 "=NUbL"+
 "-----END PGP PUBLIC KEY BLOCK-----");
