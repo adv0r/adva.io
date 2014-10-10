@@ -18,73 +18,80 @@ var App = {
         if(ga != undefined) ga('send', 'event', 'ls');
     },
     whoami: function() {
-        this.echo("Hey! I'm glad you came here to know more about me"); 
-        this.echo("My name is [[b;#44D544;] Nicolò Paternoster] and I'm a geek.");
-        this.echo("This website is under construction ;) Wait for it. :");
-        this.echo("\nI'm available to work as freelancer, so feel free to get in touch via [[b;#44D544;]contact] command");
+        this.echo("Hey there! I'm glad you ame here!"); 
+        this.echo("My name is Nico (a.k.a [[b;#44D544;]adva]) and I'm a software engineer / maker / entrepreneur / human driven by curiosity.");
+        this.echo("I am pretty busy all the time, so this website will probably be forever under construction and never completed. ");
+        this.echo("\nI'm [[b;#44D544;] available to work as freelancer on interesting stuff], type [[b;#44D544;]services] or feel free to get in touch via [[b;#44D544;]contact] command\n");
 
         if(ga != undefined) ga('send', 'event', 'whoami');
     },
     contact: function() {
         this.echo("Get in touch via:")
-        this.echo("Email:   " + e); 
+        this.echo("Email: " + e); 
         this.echo("Twitter: @adv4nced"); 
-        this.echo("GitHub");
-        this.echo("Linkedin");
 
         if(ga != undefined) ga('send', 'event', 'contact');
     },
       api: function() {
-        this.echo("api: ")
+        this.echo("api: //TODO ")
         if(ga != undefined) ga('send', 'event', 'api');
     },
           blog: function() {
-        this.echo("blog: ")
+        this.echo("//TODO open a technical blog when days get an upgrade from 24 to 36 hours \n")
         if(ga != undefined) ga('send', 'event', 'blog');
     },
        publications: function() {
-        this.echo("publications: ")
+        this.echo("publications: //TODO")
         if(ga != undefined) ga('send', 'event', 'publications');
     },
         slides: function() {
-        this.echo("slides: ")
+        this.echo("slides: //TODO")
         if(ga != undefined) ga('send', 'event', 'slides');
     },
           projects: function() {
-        this.echo("projects: ")
+        this.echo("projects: //TODO")
         if(ga != undefined) ga('send', 'event', 'projects');
     },
         publicPGPkey: function() {
         showPGP(this);
         if(ga != undefined) ga('send', 'event', 'publicPGPkey');
     },
-          tip: function() {
-        this.echo("tip: ")
+        tip: function() {
+        this.echo("If you made some extra million on Bitcoin price swings, feel free to drop some @ [[b;#44D544;]1337AdvApU14cW4M8fU5E1zAqDEe4NZGGN] \n ")
         if(ga != undefined) ga('send', 'event', 'tip');
     },
-              keywords: function() {
-        this.echo("keywords: ")
+        keywords: function() {
+        this.echo("You like buzzwords? hacking, entrepreneurship ,API, startups, disruption, cryptocurrencies, node, agile, java, machine learning, making, <drop stuff here> \n")
         if(ga != undefined) ga('send', 'event', 'keywords');
     },
           services: function() {
-        this.echo("services: ")
+        this.echo("Need a creative nerd with (some) social skills? I have extended experience working in distributed teams on a wide spectrum of projects. Get in touch for a savy sanity check on your software business, technical project management, programming, reviews, technical writing or brainstorming sessions. Type [[b;#44D544;]contact] \n")
         if(ga != undefined) ga('send', 'event', 'services');
     },
           pics: function() {
-        this.echo("pics: ")
+        this.echo("pics: //TODO")
         if(ga != undefined) ga('send', 'event', 'pics');
     },
         clear: function() {
-        this.echo("clear: ")
+        this.echo("clear: //TODO")
         if(ga != undefined) ga('send', 'event', 'clear');
     },
-              share: function() {
-        this.echo("share: ")
+        share: function() {
+        this.echo("share: //TODO")
         if(ga != undefined) ga('send', 'event', 'share');
     },
          cv: function() {
-        this.echo("cv: ")
+        this.echo("Seriously, you came this far asking for a CV?")
+        this.error("Try again, please.");
         if(ga != undefined) ga('send', 'event', 'cv');
+    },
+        su: function(user) {
+        this.echo("Seriously, [[b;#44D544;]"+user+"]!? I like you. Who are you?")
+        if(ga != undefined) ga('send', 'event', 'su');
+    },
+    sudo: function() {
+        this.echo("Ohhhh jeeez. A smart one. Who are you?")
+        if(ga != undefined) ga('send', 'event', 'su');
     },
     about: function() {
         this.echo("This page built with <a href='http://terminal.jcubic.pl/' target='_blank'>jQuery Terminal Emulator</a> plugin, and hosted by <a href='http://pages.github.com' target='_blank'>GitHub Pages<a/>. Source code is also available on <a href='https://github.com/rgv151/huy.im/tree/gh-pages' target='_blank'>GitHub</a>.<br/><br/>This page is under development.. keep visting for many cool things on the future.", {raw:true});
@@ -112,7 +119,7 @@ jQuery(document).ready(function($) {
 " #     #  #     #    # #    #     #              #     #     #\n"+
 " #    ##  #     #    # #    #    ##    ##        #     #     #\n"+
 "  #### #   ######     #      #### #    ##      #####    ##### \n\n"+
-            "Software engineer in a box]\n\n\nType [[b;#44D544;]help] to list available commands,  [[b;#44D544;]whoami] to read something about me, or   [[b;#44D544;]about] to learn about this webpage .\n\n",
+            "Verba volant, bits persist - A geek's own box]\n\n\nWelcome human, type [[b;#44D544;]help] to list available commands, [[b;#44D544;]whoami] to read something about me, or [[b;#44D544;]about] to learn about this webpage .\n\n",
         prompt: function(p){
             var path = '~'
             p(e + ":" + path + "# ");
@@ -165,12 +172,12 @@ consoleObj.echo("-----BEGIN PGP PUBLIC KEY BLOCK-----\n"+
 function showHelp(consoleObj)
 {
         consoleObj.echo("Available commands:");
-        consoleObj.echo("\t[[b;#44D544;]whoami]      display my short bio");
-        consoleObj.echo("\t[[b;#44D544;]blog]     open the blog (blog.adva.io) #hacks  ");
+        consoleObj.echo("\t[[b;#44D544;]whoami]      display a short bio");
+        consoleObj.echo("\t[[b;#44D544;]blog]     goto #hacks blog ");
         consoleObj.echo("\t[[b;#44D544;]services]      need technical lead for an interesting project? lets talk");
         consoleObj.echo("\t[[b;#44D544;]projects]      list some projects i've been working on");
         consoleObj.echo("\t[[b;#44D544;]publicPGPkey]      use this public key to send me encrypted messages");
-        consoleObj.echo("\t[[b;#44D544;]contact]       get in touch"); //TODO check if retrieve is correct
+        consoleObj.echo("\t[[b;#44D544;]contact]       get in touch"); 
         consoleObj.echo("\t[[b;#44D544;]tip]      support my development efforts with small tips (BTC)");
         consoleObj.echo("\t[[b;#44D544;]cv]      read my resume");
         consoleObj.echo("\t[[b;#44D544;]publications]      list my publications");
@@ -178,9 +185,9 @@ function showHelp(consoleObj)
         consoleObj.echo("\t[[b;#44D544;]keywords]       drop some ramdom fancy buzzwords");
         consoleObj.echo("\t[[b;#44D544;]share]  share this with friends");
         consoleObj.echo("\t[[b;#44D544;]pics]      take a look my flickr photostream");
-        consoleObj.echo("\t[[b;#44D544;]api]       retrieve a JSON representation of me"); //TODO check if retrieve is correct
-        consoleObj.echo("\t[[b;#44D544;]clear]       clear the console"); //TODO check if retrieve is correct
+        consoleObj.echo("\t[[b;#44D544;]api]       retrieve a JSON representation of me");
+        consoleObj.echo("\t[[b;#44D544;]clear]       clear the console"); 
         consoleObj.echo("\t[[b;#44D544;]help]        this help screen.");                        
         consoleObj.echo("");
-        consoleObj.echo("TIP: press <tab> to trigger autocompletion");
+        consoleObj.echo("PRO TIP: press <tab> to trigger autocompletion");
 }
