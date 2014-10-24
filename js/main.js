@@ -18,7 +18,7 @@ var App = {
         if(ga != undefined) ga('send', 'event', 'ls');
     },
     whoami: function() {
-        this.echo("Hey there! I'm glad you ame here!"); 
+        this.echo("\nHey there! I'm glad you are here!"); 
         this.echo("My name is Nico (a.k.a [[b;#44D544;]adva]) and I'm a software engineer / maker / entrepreneur / human driven by curiosity.");
         this.echo("I am pretty busy all the time, so this website will probably be forever under construction and never completed. ");
         this.echo("\nI'm [[b;#44D544;] available to work as freelancer on interesting stuff], type [[b;#44D544;]services] or feel free to get in touch via [[b;#44D544;]contact] command\n");
