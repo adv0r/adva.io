@@ -19,7 +19,7 @@ var App = {
     },
     whoami: function() {
         this.echo("\nHey there! I'm glad you are here!"); 
-        this.echo("My name is Nico (a.k.a [[b;#44D544;]adva]) and I'm a software engineer / maker / entrepreneur / human driven by curiosity.");
+        this.echo("My name is Nico (a.k.a [[b;#44D544;]adva]) and I'm a software engineer / maker / entrepreneur / human, driven by curiosity.");
         this.echo("I am pretty busy all the time, so this website will probably be forever under construction and never completed. ");
         this.echo("\nI'm [[b;#44D544;] available to work as freelancer on interesting stuff], type [[b;#44D544;]services] or feel free to get in touch via [[b;#44D544;]contact] command\n");
 
@@ -36,11 +36,13 @@ var App = {
         this.echo("api: //TODO ")
         if(ga != undefined) ga('send', 'event', 'api');
     },
-          blog: function() {
-        this.echo("//TODO open a technical blog when days get an upgrade from 24 to 36 hours \n")
+       blog: function() {
         if(ga != undefined) ga('send', 'event', 'blog');
+        this.echo("Loading the blog... Wait a sec ... \n")
+        setTimeout(function(){ document.location.href = 'http://blog.adva.io'; }, 2500);
     },
        publications: function() {
+        this.clear();
         this.echo("publications: //TODO")
         if(ga != undefined) ga('send', 'event', 'publications');
     },
@@ -71,10 +73,6 @@ var App = {
           pics: function() {
         this.echo("pics: //TODO")
         if(ga != undefined) ga('send', 'event', 'pics');
-    },
-        clear: function() {
-        this.echo("clear: //TODO")
-        if(ga != undefined) ga('send', 'event', 'clear');
     },
         share: function() {
         this.echo("share: //TODO")
