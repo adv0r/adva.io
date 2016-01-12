@@ -114,12 +114,9 @@ window.mobileAndTabletcheck = function() {
 }
 
 jQuery(document).ready(function($) {
-     if(window.mobileAndTabletcheck){
-         setTimeout(function(){ document.location.href = 'http://blog.adva.io'; }, 2500);  
-     }
+    
      
-     else
-     {
+     
            $('body').terminal(App, {
          greetings: "[[b;#44D544;]                #                                #            \n"+
         "                #                                #            \n"+
@@ -140,7 +137,7 @@ jQuery(document).ready(function($) {
         },
         tabcompletion: true
         });
-     }
+     
 
 
  
