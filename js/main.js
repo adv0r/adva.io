@@ -108,17 +108,24 @@ var App = {
 }
 
 jQuery(document).ready(function($) {
-    $('body').terminal(App, {
- greetings: "[[b;#44D544;]                #                                #            \n"+
-"                #                                #            \n"+
-"                #                                             \n"+
-"  ######   ######  ##   ##   ######            ###      ##### \n"+
-" #     #  #     #   #   #   #     #              #     #     #\n"+
-" #     #  #     #    # #    #     #              #     #     #\n"+
-" #    ##  #     #    # #    #    ##    ##        #     #     #\n"+
-"  #### #   ######     #      #### #    ##      #####    ##### \n\n"+
-            "Verba volant, bits persist - A geek's own box]\n\n\nWelcome human, type [[b;#44D544;]help] to list available commands, [[b;#44D544;]whoami] to read something about me, or [[b;#44D544;]about] to learn about this webpage .\n\n",
-        prompt: function(p){
+     if(typeof window.orientation !== 'undefined'){
+         this.echo("Loading the blog... Wait a sec ... \n")
+         setTimeout(function(){ document.location.href = 'http://blog.adva.io'; }, 2500);  
+     }
+     
+     else
+     {
+           $('body').terminal(App, {
+         greetings: "[[b;#44D544;]                #                                #            \n"+
+        "                #                                #            \n"+
+        "                #                                             \n"+
+        "  ######   ######  ##   ##   ######            ###      ##### \n"+
+        " #     #  #     #   #   #   #     #              #     #     #\n"+
+        " #     #  #     #    # #    #     #              #     #     #\n"+
+        " #    ##  #     #    # #    #    ##    ##        #     #     #\n"+
+        "  #### #   ######     #      #### #    ##      #####    ##### \n\n"+
+                    "Verba volant, bits persist - A geek's own box]\n\n\nWelcome human, type [[b;#44D544;]help] to list available commands, [[b;#44D544;]whoami] to read something about me, or [[b;#44D544;]about] to learn about this webpage .\n\n",
+                prompt: function(p){
             var path = '~'
             p(e + ":" + path + "# ");
         },
@@ -127,7 +134,11 @@ jQuery(document).ready(function($) {
             return false;
         },
         tabcompletion: true
-    });
+        });
+     }
+
+
+ 
 });
 
 function showPGP(consoleObj)
