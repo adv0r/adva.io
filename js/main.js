@@ -115,7 +115,6 @@ window.mobileAndTabletcheck = function() {
 
 jQuery(document).ready(function($) {
      if(window.mobileAndTabletcheck){
-         App.echo("Loading the blog... Wait a sec ... \n")
          setTimeout(function(){ document.location.href = 'http://blog.adva.io'; }, 2500);  
      }
      
