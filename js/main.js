@@ -42,9 +42,9 @@ var App = {
         setTimeout(function(){ document.location.href = 'http://blog.adva.io'; }, 2500);
     },
        publications: function() {
-        this.clear();
-        this.echo("publications: //TODO")
         if(ga != undefined) ga('send', 'event', 'publications');
+        this.echo("Loading scholar citations... Wait a sec ... \n")
+        setTimeout(function(){ document.location.href = 'https://scholar.google.com/citations?user=qdtZ5DMAAAAJ&hl=sv'; }, 2500);
     },
         slides: function() {
         this.echo("slides: //TODO")
@@ -70,9 +70,10 @@ var App = {
         this.echo("Need a creative nerd with (some) social skills? I have extended experience working in distributed teams on a wide spectrum of projects. Get in touch for a savy sanity check on your software business, technical project management, programming, reviews, technical writing or brainstorming sessions. Type [[b;#44D544;]contact] \n")
         if(ga != undefined) ga('send', 'event', 'services');
     },
-          pics: function() {
-        this.echo("pics: //TODO")
-        if(ga != undefined) ga('send', 'event', 'pics');
+         pics: function() {
+         this.echo("Loading flickr photostream... Wait a sec ... \n")
+        setTimeout(function(){ document.location.href = 'https://www.flickr.com/photos/nicolopaternoster/'; }, 2500);
+    
     },
         share: function() {
         this.echo("share: //TODO")
