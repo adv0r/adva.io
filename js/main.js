@@ -1,4 +1,4 @@
-var e = "hi@adva.io";
+var e = "paternoster.nicolo@gmail.com";
 
 var App = {
     echo: function(text) {
@@ -38,8 +38,8 @@ var App = {
     },
        blog: function() {
         if(ga != undefined) ga('send', 'event', 'blog');
-        this.echo("Loading the blog... Wait a sec ... \n")
-        setTimeout(function(){ document.location.href = 'http://blog.adva.io'; }, 2500);
+        this.echo("Loading the blog... Wait a sec ... Blog is dead \n")
+        //setTimeout(function(){ document.location.href = 'http://blog.adva.io'; }, 2500);
     },
        publications: function() {
         if(ga != undefined) ga('send', 'event', 'publications');
